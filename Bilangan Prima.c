@@ -3,23 +3,30 @@
 #include <math.h>
 #include <stdlib.h>
 
-#include <stdio.h>
+int main() {
 
-int main() { 
-   int loop, number;
-   int prime = 1;
+  int n, i, flag = 0;
+  printf("Enter a positive integer: ");
+  scanf("%d", &n);
+
+ 
+  if (n == 0 || n == 1)
+    flag = 1;
+
+  for (i = 2; i <= n / 2; ++i) {
+
    
-   number = 11;
+    if (n % i == 0) {
+      flag = 1;
+      break;
+    }
+  }
 
-   for(loop = 2; loop < number; loop++) {
-      if((number % loop) == 0) {
-         prime = 0;
-      }
-   }
 
-   if (prime == 1)
-      printf("%d PRIMA.", number);
-   else
-      printf("%d BUKAN.", number);
-   return 0;
+  if (flag == 0)
+    printf("%d PRIMA.", n);
+  else
+    printf("%d BUKAN.", n);
+
+  return 0;
 }
