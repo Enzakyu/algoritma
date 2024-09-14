@@ -3,28 +3,23 @@
 #include <math.h>
 #include <stdlib.h>
 
-const char *cek_prima(int n)
-{
-    if (n <= 1)
-        return "BUKAN";
-    if (n == 2)
-        return "PRIMA";
+#include <stdio.h>
 
-    for (int i = 2; i <= sqrt(n); i++)
-    {
-        if (n % i == 0)
-            return "BUKAN";
-    }
-    return "PRIMA";
-}
+int main() { 
+   int loop, number;
+   int prime = 1;
+   
+   number = 11;
 
-int main()
-{
-    int n;
+   for(loop = 2; loop < number; loop++) {
+      if((number % loop) == 0) {
+         prime = 0;
+      }
+   }
 
-    scanf("%d", &n);
-
-    printf("%s\n", cek_prima(n));
-
-    return 0;
+   if (prime == 1)
+      printf("%d PRIMA.", number);
+   else
+      printf("%d BUKAN.", number);
+   return 0;
 }
